@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11" xmlns:fx="http://javafx.com/fxml/1" fx:controller="comp261.assig2.GraphController">
+    <children>
+        <VBox fx:id="vbox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0">
+            <children>
+                <GridPane alignment="center" hgap="10" vgap="10">
+                    <children>
+                        <Button fx:id="english_bt" alignment="center" onAction="#handleEnglish" prefHeight="25.0" prefWidth="60.0" text="%English" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                        <Button fx:id="maori_bt" alignment="center" onAction="#handleMaori" prefHeight="25.0" prefWidth="60.0" text="%Maori" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+
+                        <Button fx:id="load" alignment="center" onAction="#handleLoad" prefHeight="25.0" prefWidth="60.0" text="%load" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                        <Button fx:id="quit" alignment="center" onAction="#handleQuit" prefHeight="25.0" prefWidth="60.0" text="%quit" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+                        <Button fx:id="distChange" alignment="center" onAction="#handleDistance" prefHeight="25.0" prefWidth="60.0" text="%DT" GridPane.columnIndex="4" GridPane.rowIndex="0" />
+
+
+                        <Button fx:id="zoomin" alignment="center" onAction="#handleZoomin" prefWidth="30" text="+" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+                        <Button fx:id="zoomout" alignment="center" onAction="#handleZoomout" prefWidth="30" text="-" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+
+                    
+                        <Label fx:id="Start" text="%start" GridPane.columnIndex="8" GridPane.halignment="RIGHT" />
+                        <TextField fx:id="startText" onAction="#handleStartAction" onKeyReleased="#handleStartKey" prefWidth="200" promptText="Search Start" GridPane.columnIndex="9" />
+                        <Label fx:id="Goal" alignment="CENTER_RIGHT" text="%goal" GridPane.columnIndex="8" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
+                        <TextField fx:id="goalText" onAction="#handleGoalAction" onKeyReleased="#handleGoalKey" prefWidth="200" promptText="Search Goal" GridPane.columnIndex="9" GridPane.rowIndex="1" />
+                        <Button fx:id="connectedComponents_bt" mnemonicParsing="false" onAction="#handleShowConnectedComponents" text="Components" GridPane.columnIndex="6" />
+                        <CheckBox fx:id="walking_ch" mnemonicParsing="false" onAction="#handleAddWalking" text="Walking" GridPane.columnIndex="6" GridPane.rowIndex="1" />
+                        <Slider fx:id="walkingDistance_sl" onValueChange="#handleWalkingDistanceSlider" GridPane.columnIndex="7" GridPane.rowIndex="1" />
+                        <TextField fx:id="walkingDistance_tf" onAction="#handleWalkingDistance" prefHeight="25.0" prefWidth="30.0" GridPane.columnIndex="7">
+                            <padding>
+                                <Insets left="20.0" right="20.0" />
+                            </padding>
+                            <GridPane.margin>
+                                <Insets left="50.0" right="50.0" />
+                            </GridPane.margin>
+                        </TextField>
+
+                    </children>
+                    <columnConstraints>
+                        <ColumnConstraints />
+                        <ColumnConstraints />
+                        <ColumnConstraints />
+                        <ColumnConstraints />
+                        <ColumnConstraints maxWidth="58.0" minWidth="52.0" prefWidth="52.0" />
+                        <ColumnConstraints maxWidth="87.0" minWidth="36.0" prefWidth="55.0" />
+                        <ColumnConstraints maxWidth="187.0" minWidth="36.0" prefWidth="106.0" />
+                        <ColumnConstraints maxWidth="198.0" minWidth="36.0" prefWidth="198.0" />
+                        <ColumnConstraints maxWidth="195.0" minWidth="45.0" prefWidth="47.0" />
+                        <ColumnConstraints />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints />
+                        <RowConstraints />
+                    </rowConstraints>
+                </GridPane>
+                <Canvas fx:id="mapCanvas" height="500.0" onMouseClicked="#handleMouseClick" onMouseDragged="#handleMouseDrag" onMousePressed="#handleMousePressed" onScroll="#mouseScroll" width="800" />
+
+            </children>
+        </VBox>
+        <TextArea fx:id="tripText" prefHeight="150.0" prefWidth="800.0" />
+    </children>
+</VBox>
